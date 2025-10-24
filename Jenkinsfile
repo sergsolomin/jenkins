@@ -9,26 +9,28 @@ properties([
 
 environment {
     FAVOURITE_FILM = 'The Goonies'
-    PROPERTY = load 'env.groovy'
+//    PROPERTY = load 'env.groovy'
 }
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
 //    def props = readProperties file: 'env.groovy'
-    def props = load 'env.groovy'
-    def k8sPd15 = props.k8sPd15
+//    def props = load 'env.groovy'
+//    def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
 
 node(){
 
     stage('Clean Workspace') {
         sh "echo I like to eat ${FAVOURITE_EGG_TYPE} eggs"
-        sh "echo ${k8sPd15}"
+//        sh "echo ${k8sPd15}"
+        sh "echo ${env.WORKSPACE}"
     }   
 
     post {
         always {
-            sh "rm -rf ${env.WORKSPACE} || true"
+            sh "echo ${env.WORKSPACE}"
+//            sh "rm -rf ${env.WORKSPACE} || true"
         }
     }
 
