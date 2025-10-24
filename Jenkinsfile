@@ -6,8 +6,7 @@ properties([
     ])
 ])
 
-    dir('automation'){ checkout scm }
-    envs = load "automation/env.groovy"
+
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
@@ -20,6 +19,9 @@ properties([
 
 
 node(){
+
+    dir('automation'){ checkout scm }
+    envs = load "automation/env.groovy"
 
     environment { 
         DEBUG_FLAGS = '-g'
