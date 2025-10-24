@@ -19,14 +19,14 @@ node(){
     }
 
     dir('automation'){ checkout scm }
-    load "automation/config/env.properties"
+    def prop = load "automation/config/env.properties"
 
     def clustersPd15 = k8sPd15.split(',').collect{it}
 
     stage('Clean Workspace') {
         sh "echo I like to eat ${nexusRepoUrl} eggs"
-        sh "echo k8sPd15 ${k8sPd15}"
-        sh "echo clustersPd15 ${clustersPd15}"
+        sh "echo k8sPd15 ${prop.k8sPd15}"
+        sh "echo clustersPd15 ${prop.clustersPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
 
