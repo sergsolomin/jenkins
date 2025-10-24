@@ -12,12 +12,6 @@ properties([
     def nexusRepoUrl = "https://nexusRepoUrl/"
 
 
-//    def props = readProperties file: 'env.groovy'
-//    def props = load 'env.groovy'
-//    def k8sPd15 = props.k8sPd15
-//    def k8sPd15 = PROPERTY.k8sPd15
-
-
 node(){
 
     environment { 
@@ -25,7 +19,7 @@ node(){
     }
 
     dir('automation'){ checkout scm }
-    envs = load "automation/env.groovy"
+    envs = load "automation/config/env.groovy"
 
     def clustersPd15 = k8sPd15.split(',').collect{it}
 
