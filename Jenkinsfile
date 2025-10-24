@@ -10,7 +10,7 @@ properties([
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
-//    def clustersPd15 = k8sPd15.split(',').collect{it}
+
 
 //    def props = readProperties file: 'env.groovy'
 //    def props = load 'env.groovy'
@@ -20,16 +20,19 @@ properties([
 
 node(){
 
-    dir('automation'){ checkout scm }
-    envs = load "automation/env.groovy"
-
     environment { 
         DEBUG_FLAGS = '-g'
     }
 
+    dir('automation'){ checkout scm }
+    envs = load "automation/env.groovy"
+
+    def clustersPd15 = k8sPd15.split(',').collect{it}
+
     stage('Clean Workspace') {
         sh "echo I like to eat ${nexusRepoUrl} eggs"
         sh "echo ${k8sPd15}"
+        sh "echo ${clustersPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
 
