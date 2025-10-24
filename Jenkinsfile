@@ -25,8 +25,8 @@ node(){
 
     stage('Clean Workspace') {
         sh "echo I like to eat ${nexusRepoUrl} eggs"
-        sh "echo ${k8sPd15}"
-        sh "echo ${clustersPd15}"
+        sh "echo k8sPd15 ${k8sPd15}"
+        sh "echo clustersPd15 ${clustersPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
 
