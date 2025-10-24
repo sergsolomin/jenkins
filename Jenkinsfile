@@ -22,9 +22,9 @@ properties([
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
-/    def props = readProperties file: 'env.groovy'
+    def props = readProperties file: 'env.groovy'
 //    def props = load 'env.groovy'
-//    def k8sPd15 = props.k8sPd15
+    def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
 
 
@@ -36,14 +36,13 @@ node(){
 
     stage('Clean Workspace') {
         sh "echo I like to eat ${nexusRepoUrl} eggs"
-//        sh "echo ${k8sPd15}"
+        sh "echo ${k8sPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
 
     post {
         always {
-            sh "echo ${env.WORKSPACE}"
-//            sh "rm -rf ${env.WORKSPACE} || true"
+            sh "rm -rf ${env.WORKSPACE} || true"
         }
     }
 
