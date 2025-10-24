@@ -9,11 +9,9 @@ properties([
 node {
     // Импортируем библиотеки
     dir('automation'){ checkout scm }
-    workspaceLib = load "automation/env.dev"
+    envs = load "automation/env.groovy"
     // Загружаем контекст
     stash includes: "automation/", name: "automationDir"
-    // Подготавливаем рабочую директорию
-    envs.setRunMoneEnv()
 
     stage('Clean Workspace') {
         sh "echo ${k8sPd15}"
@@ -25,7 +23,7 @@ node {
     def nexusRepoUrl = "https://nexusRepoUrl/"
 //    def clustersPd15 = k8sPd15.split(',').collect{it}
 
-//    def props = readProperties file: 'env.dev'
+//    def props = readProperties file: 'env.groovy'
 //    def props = load 'env.groovy'
 //    def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
