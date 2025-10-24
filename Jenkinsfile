@@ -25,6 +25,8 @@ node {
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
+//    def clustersPd15 = k8sPd15.split(',').collect{it}
+
 //    def props = readProperties file: 'env.dev'
 //    def props = load 'env.groovy'
 //    def k8sPd15 = props.k8sPd15
