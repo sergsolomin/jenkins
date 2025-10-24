@@ -15,7 +15,7 @@ environment {
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
 //    def props = readProperties file: 'env.groovy'
-    def props = load'env.groovy'
+    def props = load 'env.groovy'
     def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
 
@@ -29,7 +29,6 @@ node(){
     post {
         always {
             sh "rm -rf ${env.WORKSPACE} || true"
-            cleanWs()
         }
     }
 
