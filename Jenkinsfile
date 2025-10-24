@@ -21,7 +21,13 @@ node(){
     stage('Clean Workspace') {
         sh "echo I like to eat ${FAVOURITE_EGG_TYPE} eggs"
         sh "echo ${k8sPd15}"
-        cleanWs()
     }   
+
+    post {
+        always {
+            sh "rm -rf ${env.WORKSPACE} || true"
+            cleanWs()
+        }
+    }
 
 }
