@@ -7,14 +7,16 @@ properties([
     ])
 ])
 
-    //Глобальные переменные
-    def nexusRepoUrl = "https://nexusRepoUrl/"
-    def props = readProperties file: 'env.groovy'
-    def k8sPd15 = props.k8sPd15
-
 environment {
     FAVOURITE_FILM = 'The Goonies'
+    PROPERTY = load 'env.groovy'
 }
+
+    //Глобальные переменные
+    def nexusRepoUrl = "https://nexusRepoUrl/"
+//    def props = readProperties file: 'env.groovy'
+//    def k8sPd15 = props.k8sPd15
+    def k8sPd15 = PROPERTY.k8sPd15
 
 node(){
 
