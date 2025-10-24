@@ -12,7 +12,7 @@ properties([
 node {
     // Импортируем библиотеки
     dir('automation'){ checkout scm }
-    workspaceLib = load "automation/env.groovy"
+    workspaceLib = load "automation/env.dev"
     // Загружаем контекст
 //    paramsLib.loadContext('cd', true)
 //    stash includes: "automation/", name: "automationDir"
