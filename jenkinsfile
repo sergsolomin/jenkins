@@ -9,14 +9,10 @@ properties([
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
+    def props = readProperties file: 'config/env.groovy'
 
 
 node(){
-
-    environment { 
-        k8sPd15 = '123'
-        asd = '123'
-    }
 
     stage('Clean Workspace') {
         sh "echo ${k8sPd15}"
