@@ -8,14 +8,12 @@ properties([
 
 node {
     // Импортируем библиотеки
-    dir('automation'){ checkout scm }
-    def envs = load "automation/env.groovy"
+//    dir('automation'){ checkout scm }
+    envs = load "jenkins/env.groovy"
     // Загружаем контекст
-    stash includes: "automation/", name: "automationDir"
-    def k8sPd15 = ${envs.k8sPd15}
+//    stash includes: "automation/", name: "automationDir"
 
     stage('Clean Workspace') {
-        sh "echo ${envs.k8sPd15}"
         sh "echo ${k8sPd15}"
     }   
 }
