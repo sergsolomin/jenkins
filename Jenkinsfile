@@ -1,5 +1,3 @@
-#!/usr/bin/env groovy
-import hudson.model.*
 
 //Параметры
 properties([
@@ -24,7 +22,7 @@ properties([
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
-    def props = readProperties file: 'env.groovy'
+    def props = readProperties file: 'env.dev'
 //    def props = load 'env.groovy'
     def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
