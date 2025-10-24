@@ -13,7 +13,6 @@ node {
     // Загружаем контекст
     stash includes: "automation/", name: "automationDir"
     // Подготавливаем рабочую директорию
-    workspaceLib.prepareWorkspace()
     envs.setRunMoneEnv()
 
     stage('Clean Workspace') {
