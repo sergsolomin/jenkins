@@ -12,16 +12,18 @@ node {
     def envs = load "automation/env.groovy"
     // Загружаем контекст
     stash includes: "automation/", name: "automationDir"
+    def k8sPd15 = ${envs.k8sPd15}
 
     stage('Clean Workspace') {
         sh "echo ${envs.k8sPd15}"
+        sh "echo ${k8sPd15}"
     }   
 }
 
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
-    def clustersPd15 = k8sPd15.split(',').collect{it}
+//    def clustersPd15 = k8sPd15.split(',').collect{it}
 
 //    def props = readProperties file: 'env.groovy'
 //    def props = load 'env.groovy'
@@ -29,17 +31,17 @@ node {
 //    def k8sPd15 = PROPERTY.k8sPd15
 
 
-node(){
-
-    environment { 
-        DEBUG_FLAGS = '-g'
-    }
-
-    stage('Clean Workspace') {
-        sh "echo I like to eat ${nexusRepoUrl} eggs"
-        sh "echo ${k8sPd15}"
-        sh "echo ${env.WORKSPACE}"
-    }   
-
-
-}
+//node(){
+//
+//    environment { 
+//        DEBUG_FLAGS = '-g'
+//    }
+//
+//    stage('Clean Workspace') {
+//        sh "echo I like to eat ${nexusRepoUrl} eggs"
+//        sh "echo ${k8sPd15}"
+//        sh "echo ${env.WORKSPACE}"
+//    }   
+//
+//
+//}
