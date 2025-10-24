@@ -7,11 +7,6 @@ properties([
     ])
 ])
 
-environment {
-    FAVOURITE_FILM = 'The Goonies'
-    film = 'The film'
-//    PROPERTY = load 'env.groovy'
-}
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
@@ -23,8 +18,7 @@ environment {
 node(){
 
     stage('Clean Workspace') {
-        sh "echo I like to eat ${FAVOURITE_FILM} eggs"
-        sh "echo I like to eat ${film} eggs"
+        sh "echo I like to eat ${nexusRepoUrl} eggs"
 //        sh "echo ${k8sPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
