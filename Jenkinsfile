@@ -6,18 +6,8 @@ properties([
     ])
 ])
 
-node {
-    // Импортируем библиотеки
-//    dir('automation'){ checkout scm }
-    envs = load "jenkins/env.groovy"
-    // Загружаем контекст
-//    stash includes: "automation/", name: "automationDir"
-
-    stage('Clean Workspace') {
-        sh "echo ${k8sPd15}"
-    }   
-}
-
+    dir('automation'){ checkout scm }
+    envs = load "automation/env.groovy"
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
@@ -29,17 +19,17 @@ node {
 //    def k8sPd15 = PROPERTY.k8sPd15
 
 
-//node(){
-//
-//    environment { 
-//        DEBUG_FLAGS = '-g'
-//    }
-//
-//    stage('Clean Workspace') {
-//        sh "echo I like to eat ${nexusRepoUrl} eggs"
-//        sh "echo ${k8sPd15}"
-//        sh "echo ${env.WORKSPACE}"
-//    }   
-//
-//
-//}
+node(){
+
+    environment { 
+        DEBUG_FLAGS = '-g'
+    }
+
+    stage('Clean Workspace') {
+        sh "echo I like to eat ${nexusRepoUrl} eggs"
+        sh "echo ${k8sPd15}"
+        sh "echo ${env.WORKSPACE}"
+    }   
+
+
+}
