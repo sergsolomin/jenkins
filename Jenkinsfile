@@ -19,7 +19,7 @@ node(){
     }
 
     dir('automation'){ checkout scm }
-    envs = load "automation/config/env.properties"
+    load "automation/config/env.properties"
 
     def clustersPd15 = k8sPd15.split(',').collect{it}
 
