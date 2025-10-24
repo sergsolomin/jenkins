@@ -9,6 +9,7 @@ properties([
 
 environment {
     FAVOURITE_FILM = 'The Goonies'
+    film = 'The film'
 //    PROPERTY = load 'env.groovy'
 }
 
@@ -22,7 +23,8 @@ environment {
 node(){
 
     stage('Clean Workspace') {
-        sh "echo I like to eat ${FAVOURITE_EGG_TYPE} eggs"
+        sh "echo I like to eat ${FAVOURITE_FILM} eggs"
+        sh "echo I like to eat ${film} eggs"
 //        sh "echo ${k8sPd15}"
         sh "echo ${env.WORKSPACE}"
     }   
