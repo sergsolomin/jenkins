@@ -7,15 +7,32 @@ properties([
     ])
 ])
 
+//node {
+//    // Импортируем библиотеки
+//    dir('automation'){ checkout scm }
+//    workspaceLib = load "automation/env.groovy"
+//    // Загружаем контекст
+//    paramsLib.loadContext('cd', true)
+//    stash includes: "automation/", name: "automationDir"
+//    // Подготавливаем рабочую директорию
+//    workspaceLib.prepareWorkspace()
+//    envs.setRunMoneEnv()
+//}
+
 
     //Глобальные переменные
     def nexusRepoUrl = "https://nexusRepoUrl/"
-//    def props = readProperties file: 'env.groovy'
+/    def props = readProperties file: 'env.groovy'
 //    def props = load 'env.groovy'
 //    def k8sPd15 = props.k8sPd15
 //    def k8sPd15 = PROPERTY.k8sPd15
 
+
 node(){
+
+    environment { 
+        DEBUG_FLAGS = '-g'
+    }
 
     stage('Clean Workspace') {
         sh "echo I like to eat ${nexusRepoUrl} eggs"
